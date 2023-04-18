@@ -33,7 +33,7 @@ export default class ChargePoint {
     const self = this;
 
     return new Promise((resolve, reject) => {
-      const ws = new WebSocket(this.options.centralSystemUrl, [OCPP_PROTOCOL_1_6], {
+      const ws = this.options.ws !== undefined ? this.options.ws : new WebSocket(this.options.centralSystemUrl, [OCPP_PROTOCOL_1_6], {
         perMessageDeflate: false,
         protocolVersion: 13
       });
